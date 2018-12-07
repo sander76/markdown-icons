@@ -1,9 +1,9 @@
 from setuptools import setup
 
 setup(
-    name='markdown-icons',
+    name='markdown-iconfonts',
     description='Easily display icon fonts in markdown.',
-    version="0.1.0",
+    version="2.1.1",
     py_modules=['iconfonts'],
     install_requires=['markdown', 'six'],
     author='Eric Eastwoord',
