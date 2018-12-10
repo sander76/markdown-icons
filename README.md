@@ -1,3 +1,5 @@
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+
 # markdown-icons (`iconfonts.py`)
 
 Easily display icon fonts in python markdown. Just add the CSS necessary for your font and add this extension. 
@@ -14,8 +16,6 @@ Furthermore, users can add their own `user_mod` syntax to add additional, non-pr
 See the [python markdown documentation](http://pythonhosted.org/Markdown/) for more information.
 
 Use it in any personal or commercial project you want.
-
-# Current Version: 2.1
 
 # Syntax:
 
@@ -57,29 +57,32 @@ I love <i aria-hidden="true" class="icon-html5"></i> and <i aria-hidden="true" c
 
 # Installation:
 
-Just drop it in the extensions folder of the markdown package: `markdown/extensions`
+```bash
+pip install markdown-iconfonts
+```
 
 
 # Usage / Setup:
 
-#### Default Prefix is "icon-":
+## Default Prefix is "icon-":
 
-##### In a Django Template: 
-`{{ textmd|markdown:"safe,iconfonts" }}`
+```python
+import markdown
 
-##### In Python:
-```
 md = markdown.Markdown(extensions=['iconfonts'])
-converted_text = md.convert(text)
 ```
 
+or 
 
-#### Use a custom Prefix:
+```Python
+import markdown
+from iconfonts import IconFontsExtension
 
-##### In a Django Template:
-`{{ textmd|markdown:"safe,iconfonts(prefix=mypref-)" }}`
+md = markdown.Markdown(extensions=[IconFontsExtension()])
+```
 
-##### In Python:
+## Configuration options:
+
 ```
 md = markdown.Markdown(extensions=['iconfonts(prefix=mypref-)'])
 converted_text = md.convert(text)

@@ -1,7 +1,8 @@
 import unittest
 
-import os
 import markdown
+
+from iconfonts import IconFontsExtension
 
 
 class TestMDI(unittest.TestCase):
