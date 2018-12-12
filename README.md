@@ -80,13 +80,6 @@ from iconfonts import IconFontsExtension
 md = markdown.Markdown(extensions=[IconFontsExtension()])
 ```
 
-## Configuration options:
-
-```
-md = markdown.Markdown(extensions=['iconfonts(prefix=mypref-)'])
-converted_text = md.convert(text)
-```
-
 #### The `base` option allows for use of Bootstrap 3 and FontAwesome 4 icons
 
 ```python
