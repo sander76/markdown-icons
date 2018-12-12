@@ -8,7 +8,7 @@ HERE = pathlib.Path(__file__).parent
 README = (HERE.joinpath("README.MD")).read_text()
 
 setup(
-    name="markdown-icons",
+    name="markdown-iconfonts",
     description="Easily display icon fonts in markdown.",
     long_description=README,
     long_description_content_type="text/markdown",
