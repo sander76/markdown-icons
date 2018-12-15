@@ -1,3 +1,5 @@
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+
 # markdown-icons (`iconfonts.py`)
 
 Easily display icon fonts in python markdown. Just add the CSS necessary for your font and add this extension. 
@@ -14,8 +16,6 @@ Furthermore, users can add their own `user_mod` syntax to add additional, non-pr
 See the [python markdown documentation](http://pythonhosted.org/Markdown/) for more information.
 
 Use it in any personal or commercial project you want.
-
-# Current Version: 2.1
 
 # Syntax:
 
@@ -57,48 +57,34 @@ I love <i aria-hidden="true" class="icon-html5"></i> and <i aria-hidden="true" c
 
 # Installation:
 
-Just drop it in the extensions folder of the markdown package: `markdown/extensions`
-
+```bash
+pip install markdown-iconfonts
+```
 
 # Usage / Setup:
 
-#### Default Prefix is "icon-":
+## Default Prefix is "icon-":
 
-##### In a Django Template: 
-`{{ textmd|markdown:"safe,iconfonts" }}`
+```python
+import markdown
 
-##### In Python:
-```
 md = markdown.Markdown(extensions=['iconfonts'])
-converted_text = md.convert(text)
 ```
 
+or 
 
-#### Use a custom Prefix:
+```Python
+import markdown
+from iconfonts import IconFontsExtension
 
-##### In a Django Template:
-`{{ textmd|markdown:"safe,iconfonts(prefix=mypref-)" }}`
-
-##### In Python:
-```
-md = markdown.Markdown(extensions=['iconfonts(prefix=mypref-)'])
-converted_text = md.convert(text)
-```
-
-#### No prefix (just in case you couldn't figure it out :P):
-This isn't suggested, as it will take over the already built in HTML Entities
-
-##### In Python:
-```
-md = markdown.Markdown(extensions=['iconfonts(prefix=)'])
-converted_text = md.convert(text)
+md = markdown.Markdown(extensions=[IconFontsExtension()])
 ```
 
 #### The `base` option allows for use of Bootstrap 3 and FontAwesome 4 icons
 
-##### In Python:
-```
-md = markdown.Markdown(extensions=['iconfonts(base=icon)'])
+```python
+md = markdown.Markdown(extensions=['iconfonts'],
+                       extension_configs={"base":"icon"})
 converted_text = md.convert(text)
 ```
 
@@ -106,17 +92,11 @@ converted_text = md.convert(text)
 
 **Output:** `<i aria-hidden="true" class="icon icon-html5"></i>`
 
-#### Combine options with a comma:
-```
-md = markdown.Markdown(extensions=['iconfonts(prefix=fa-, base=fa)'])
-```
-
 #### `prefix_base_pairs` option
 
 The `prefix_base_pairs` option allows for multiple prefix-base pairs to be specified, to allow you to support both Bootstrap 3/Glyphicon and FontAwesome icons
 
-##### In Python:
-```
+``` 
 md = markdown.Markdown(extensions=['iconfonts'],
                        extension_configs={
                            'iconfonts': {
